@@ -1,10 +1,41 @@
 import React from 'react';
+import gsap from 'gsap';
+import SplitType from 'split-type';
+import { useInView } from 'react-intersection-observer';
 import Plus from '../components/Plus';
 import react from '../assets/react.svg';
 
 function Homepage() {
+  const [ref, inView] = useInView({
+    triggerOnce: true, // Trigger the animation only once
+  });
+
+  React.useEffect(() => {
+    if (inView) {
+      const text = new SplitType('h1.hello', { types: 'chars' });
+      const { chars } = text;
+
+      gsap.fromTo(
+        chars,
+        {
+          scale: 1.2,
+          opacity: 0,
+          filter: 'blur(10px)',
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          filter: 'blur(0px)',
+          stagger: 0.1,
+          duration: 2,
+          ease: 'power4.out',
+        },
+      );
+    }
+  }, [inView]);
+
   return (
-    <div className="min-h-screen flex items-center px-4">
+    <div className="min-h-screen flex items-center px-4 bg-gray">
       <section className="max-w-screen-xl mx-auto flex flex-col justify-center w-full">
         <div className="flex flex-col items-center gap-4">
           <div className="flex gap-8">
@@ -14,7 +45,7 @@ function Homepage() {
               alt="Rounded avatar"
             />
             <img
-              className="w-16 h-16 rounded-full animate-spin"
+              className="w-16 h-16 rounded-full animate-spin-slow"
               src={react}
               alt="Rounded avatar"
             />
@@ -34,14 +65,35 @@ function Homepage() {
           <div className="hidden lg:block">
             <Plus size="50" />
           </div>
-          <div className="text-center uppercase">
-            <h2 className="font-dharma font-semibold lg:text-[25rem]  text-[10rem] leading-none cursor-default">
-              hello !
-            </h2>
+          <div className="text-center uppercase" ref={ref}>
+            <h1 className="hello font-dharma font-semibold lg:text-[25rem]  text-[10rem] leading-none cursor-default ">
+              h
+              <span className="text-violet">el</span>
+              lo
+              {' '}
+              <span className="text-violet">!</span>
+            </h1>
           </div>
           <div className="hidden lg:block">
             <Plus size="50" />
           </div>
+        </div>
+        <div className="flex justify-around font-incon uppercase tracking-wider text-xs lg:text-base">
+          <span className="text-right">
+            a portfolio website
+            {' '}
+            <br />
+            to inspire you
+          </span>
+          <span>
+            made by
+            {' '}
+            <br />
+            rafiq daud
+          </span>
+          <span>
+            <a href="https://github.com/OnyanPokon" className="hover:text-violet">/Github</a>
+          </span>
         </div>
       </section>
     </div>
