@@ -21,5 +21,8 @@ export default {
       incon: ['Inconsolata', 'sans-serif'],
     },
   },
-  plugins: [],
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('tailwind-scrollbar-hide'),
+  ],
 };
