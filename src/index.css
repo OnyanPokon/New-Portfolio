@@ -10,4 +10,34 @@
   .transparent{
     color: transparent;
   }
+  
+  .button-riple::before{
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: #5739fb;
+    transition: width 0.5s, height 0.5s;
+  }
+  .button-riple:hover::before{
+    width: 300px;
+    height: 300px;
+  }
 }
+
+@font-face {
+  font-family: 'Dharma Gothic E';
+  src: url(assets/font/DharmaGothicE_Bold_R.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url(assets/font/Inconsolata-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+

@@ -1,194 +1,93 @@
-import { React, useEffect } from 'react';
-import gsap from 'gsap';
-import SplitType from 'split-type';
-import { useInView } from 'react-intersection-observer';
+/* eslint-disable react/jsx-no-comment-textnodes */
+import { React } from 'react';
 import Marquee from 'react-fast-marquee';
-// import { motion, useDragControls } from 'framer-motion';
-import Plus from '../components/Plus';
-import react from '../assets/react.svg';
-// import Portfolio from '../components/Portfolio/Portfolio';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaInstagram, FaGithub } from 'react-icons/fa';
 import Carousel from '../components/Carousel/Carousel';
+import Hero from '../components/Section/Hero';
+import About from '../components/Section/About';
+import Skills from '../components/Section/Skills';
+import Thankyou from '../components/Section/Thankyou';
+import '../index.css';
 
 function Homepage() {
-  const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger the animation only once
-  });
-
-  useEffect(() => {
-    if (inView) {
-      const text = new SplitType('.hello', { types: 'chars' });
-      const { chars } = text;
-
-      gsap.fromTo(
-        chars,
-        {
-          scale: 1.2,
-          opacity: 0,
-          filter: 'blur(10px)',
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          filter: 'blur(0px)',
-          stagger: 0.1,
-          duration: 2,
-          ease: 'power4.out',
-        },
-      );
-    }
-  }, [inView]);
-
   return (
     <>
-      <div className="min-h-screen flex items-center px-4 bg-gray">
-        <section className="max-w-screen-xl mx-auto flex flex-col justify-center w-full">
-          <div className="flex flex-col items-center gap-4">
-            <div className="flex gap-8">
-              <img
-                className="w-16 h-16 rounded-full ring-2 ring-gray "
-                src="/rafiq.jpg"
-                alt="Rounded avatar"
-              />
-              <img
-                className="w-16 h-16 rounded-full animate-spin-slow"
-                src={react}
-                alt="Rounded avatar"
-              />
-            </div>
-            <div className="font-incon text-center text-xs uppercase">
-              <p>
-                Welcome to my portfolio website
-                {' '}
-                <br />
-                {' '}
-                [use dekstop for better
-                experience]
-              </p>
-            </div>
-          </div>
-          <div className="flex lg:justify-between justify-center items-center">
-            <div className="hidden lg:block">
-              <Plus size="50" />
-            </div>
-            <div className="text-center uppercase" ref={ref}>
-              <h1 className="hello font-dharma font-semibold lg:text-[25rem]  text-[10rem] leading-none cursor-default ">
-                h
-                <span className="text-violet">el</span>
-                lo
-                {' '}
-                <span className="text-violet">!</span>
-              </h1>
-            </div>
-            <div className="hidden lg:block">
-              <Plus size="50" />
-            </div>
-          </div>
-          <div className="flex justify-around font-incon uppercase tracking-wider text-xs lg:text-base">
-            <span className="text-right">
-              a portfolio website
-              {' '}
-              <br />
-              to inspire you
-            </span>
-            <span>
-              made by
-              {' '}
-              <br />
-              rafiq daud
-            </span>
-            <span>
-              <a
-                href="https://github.com/OnyanPokon"
-                className="hover:text-violet"
-              >
-                /Github
-              </a>
-            </span>
-          </div>
-        </section>
+      <div className="py-28 flex items-center px-4 bg-gray overflow-x-hidden">
+        <motion.img
+          animate={{ x: -50, y: -100, rotate: 100 }}
+          transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse' }}
+          src="/cube.png"
+          alt=""
+          className="lg:w-[30rem] md:w-[20rem] w-[10rem] absolute z-10 -left-20"
+        />
+        <motion.img
+          animate={{ x: 100, y: 100, rotate: 100 }}
+          transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse' }}
+          src="/cube.png"
+          alt=""
+          className="lg:w-[10rem] md:w-[6rem] w-[4rem] absolute z-3 bottom-10 filter blur-md"
+        />
+        <motion.img
+          animate={{ x: -100, y: 100, rotate: 100 }}
+          transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse' }}
+          src="/cube.png"
+          alt=""
+          className="lg:w-[10rem] md:w-[6rem] w-[4rem] absolute z-20 right-4 filter blur-sm"
+        />
+        <Hero />
+      </div>
+      <div className="bg-gray w-full overflow-x-hidden" id="about">
+        <About />
       </div>
       <div className="bg-gray">
-        <section className="max-w-screen-xl mx-auto flex justify-around items-start lg:gap-20 py-20 lg:px-28 px-10 gap-5">
-          <div>
-            <img src="/arrow.svg" alt="" className="w-80" />
-          </div>
-          <div className=" lg:pr-40 flex flex-col lg:gap-20 gap-10">
-            <p className="lg:text-4xl text-lg tracking-wide">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
-              voluptatibus, ut esse nisi quia rerum temporibus aliquid impedit
-              voluptates vero, minima iste sunt iusto molestias?Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Laborum, nam?
-            </p>
-            <span className="font-incon uppercase lg:text-base text-xs tracking-wider">
-              [ ready to stand out? ]
-            </span>
-          </div>
-        </section>
+        <Skills />
       </div>
       <div className="bg-gray">
-        <section className="max-w-screen-xl mx-auto flex justify-center items-center lg:px-32 px-10 py-20">
-          <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-36 gap-20">
-            <div className="flex flex-col gap-4">
-              <div className="font-dharma lg:text-[15rem] text-[8rem] font-semibold leading-none">
-                01
-              </div>
-              <hr />
-              <div className="flex flex-col gap-4">
-                <h2 className="font-dharma uppercase md:text-6xl text-4xl font-semibold">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                </h2>
-                <span className="font-incon uppercase lg:text-base text-xs tracking-wider">
-                  [ ready to stand out? ]
-                </span>
-                <p className="lg:text-lg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Perspiciatis qui nulla, tempora nostrum dolores aliquid ipsam
-                  voluptates minus aspernatur enim? Nulla excepturi voluptas
-                  inventore consequatur eius consequuntur, iure totam sed.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col gap-4">
-              <div className="font-dharma lg:text-[15rem] text-[8rem] font-semibold leading-none">
-                02
-              </div>
-              <hr />
-              <div className="flex flex-col gap-4">
-                <h2 className="font-dharma uppercase md:text-6xl text-4xl font-semibold">
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                </h2>
-                <span className="font-incon uppercase lg:text-base text-xs tracking-wider">
-                  [ ready to stand out? ]
-                </span>
-                <p className="lg:text-lg">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Perspiciatis qui nulla, tempora nostrum dolores aliquid ipsam
-                  voluptates minus aspernatur enim? Nulla excepturi voluptas
-                  inventore consequatur eius consequuntur, iure totam sed.
-                </p>
-              </div>
-            </div>
+        <section className="py-16 relative overflow-x-hidden h-full">
+          <motion.img
+            animate={{ x: -100, y: 100, rotate: 100 }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
+            src="/cube.png"
+            alt=""
+            className="lg:w-[10rem] md:w-[6rem] w-[4rem] absolute z-[3] filter blur-sm "
+          />
+          <div className="absolute z-[3] flex justify-center items-center w-full">
+            <motion.img
+              animate={{ x: -100, y: 100, rotate: 100 }}
+              transition={{
+                duration: 40,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }}
+              src="/cylinder.png"
+              alt=""
+              className="lg:w-[30em] md:w-[20rem] w-[10rem]"
+            />
           </div>
-        </section>
-      </div>
-      <div className="bg-gray">
-        <section className="py-20">
           <Marquee speed={200}>
-            <p className="font-dharma font-bold leading-none overflow-hidden lg:text-[20rem] text-[10rem] transparent font-outline uppercase">
+            <p className="font-dharma font-bold leading-none overflow-hidden lg:text-[20rem] text-[10rem] transparent font-outline uppercase  z-20">
               MOHAMAD RAFIQ DAUD\
             </p>
           </Marquee>
           <Marquee
             direction="right"
             speed={200}
-            className="font-dharma font-bold overflow-hidden leading-none lg:text-[20rem] text-[10rem] text-white uppercase"
+            className="font-dharma font-bold overflow-hidden leading-none lg:text-[20rem] text-[10rem] text-white uppercase z-30 tracking-wide"
           >
             <p>UIUX DESIGNER/FRONT END DEVELOPER/</p>
           </Marquee>
         </section>
       </div>
-      <div className="bg-black ">
-        <section className="max-w-screen-xl mx-auto flex flex-col pt-32 items-center gap-16">
+      <div className="bg-black" id="portfolio">
+        <section
+          className="max-w-screen-xl mx-auto flex flex-col pt-32 items-center gap-16"
+          id="portfolio"
+        >
           <div>
             <img
               src="/gray.svg"
@@ -205,22 +104,228 @@ function Homepage() {
             </h2>
           </div>
         </section>
-        {/* <section className="flex overflow-x-auto py-16 px-32 scrollbar-hide">
-          <div className="w-[60rem] flex-shrink-0 p-6 border border-gray ">
-            <Portfolio />
-          </div>
-          <div className="w-[60rem] flex-shrink-0 p-6 border border-gray">
-            <Portfolio />
-          </div>
-        </section> */}
         <Carousel />
-        <section className="flex h-48 items-center justify-center">
-          <span className="font-semibold uppercase text-neutral-500">
-            Scroll up
-          </span>
+        <section className="max-w-screen-xl mx-auto flex text-gray pb-20 px-4">
+          <div className="flex flex-col w-full ">
+            <div className="border-b border-gray py-5">
+              <p className="font-incon uppercase">// Tools that i use</p>
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">01.</span>
+              <p className="lg:text-6xl">React</p>
+              <img
+                src="/react.png"
+                alt=""
+                className="w-16 h-16 lg:block hidden"
+              />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">02.</span>
+              <p className="lg:text-6xl">Figma</p>
+              <img
+                src="/figma.png"
+                alt=""
+                className="w-16 h-16 hidden lg:block"
+              />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">03.</span>
+              <p className="lg:text-6xl">Adobe Illustrator</p>
+              <img src="/ai.png" alt="" className="w-16 h-16 hidden lg:block" />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">04.</span>
+              <p className="lg:text-6xl">HTML 5</p>
+              <img
+                src="/html.png"
+                alt=""
+                className="w-16 h-16 hidden lg:block"
+              />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">04.</span>
+              <p className="lg:text-6xl">CSS 3</p>
+              <img
+                src="/css.png"
+                alt=""
+                className="w-16 h-16 hidden lg:block"
+              />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">04.</span>
+              <p className="lg:text-6xl">Javascript 3</p>
+              <img
+                src="/javascript.png"
+                alt=""
+                className="w-16 h-16 hidden lg:block"
+              />
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">05.</span>
+              <p className="lg:text-6xl">Tailwind CSS </p>
+              <img
+                src="/tailwind.png"
+                alt=""
+                className="w-16 h-16 hidden lg:block"
+              />
+            </div>
+          </div>
         </section>
       </div>
-
+      <div className="bg-gray min-h-screen relative overflow-x-hidden">
+        <motion.img
+          animate={{ x: -100, y: 100, rotate: 100 }}
+          transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse' }}
+          src="/cube.png"
+          alt=""
+          className="lg:w-[10rem] md:w-[6rem] w-[4rem] absolute z-30 right-1"
+        />
+        <motion.img
+          animate={{ x: -100, y: 100, rotate: 100 }}
+          transition={{ duration: 40, repeat: Infinity, repeatType: 'reverse' }}
+          src="/cylinder.png"
+          alt=""
+          className="lg:w-[30rem] md:w-[6rem] w-[4rem] absolute z-3 filter blur-md"
+        />
+        <section
+          className="max-w-screen-xl mx-auto px-6 py-20 overflow-x-hidden overflow-y-visible "
+          id="contact"
+        >
+          <div className="bg-white opacity-[0.95] rounded-lg z-20 w-full  overflow-x-hidden flex flex-col items-center py-20 backdrop-blur-3xl">
+            <div className="flex gap-4 mb-10">
+              <img
+                className="w-10 h-10 rounded-full ring-2 ring-gray "
+                src="/rafiq.jpg"
+                alt="Rounded avatar"
+              />
+              <img
+                className="w-10 h-10 rounded-full animate-spin-slow"
+                src="/react.png"
+                alt="Rounded avatar"
+              />
+            </div>
+            <div className="flex flex-col text-black items-center uppercase leading-none">
+              <h2 className="lg:text-[8rem] text-[4rem] font-dharma font-bold">
+                contact me
+              </h2>
+            </div>
+            <div className="flex items-center max-w-md px-6 lg:text-sm text-xs">
+              <p className="text-center">
+                I can
+                {'\''}
+                t wait to collaborate with you. Don
+                {'\''}
+                t forget to reach out
+                to me if you want to build something extraordinary together.
+              </p>
+            </div>
+            <div className="flex gap-2 mt-10 flex-wrap items-center justify-center px-6">
+              <a
+                href="https://www.linkedin.com/in/mohamad-rafiq-daud-a58441248/"
+                className="text-white bg-black rounded-full font-medium text-md px-5 py-2.5  me-2 mb-2 uppercase font-dharma tracking-widest relative overflow-hidden button-riple "
+              >
+                <span className="text-center inline-flex items-center relative z-[1]">
+                  <FaLinkedin className="mr-2" />
+                  Linked in
+                </span>
+              </a>
+              <a
+                href="https://www.instagram.com/rafiqdaud_?igsh=ODA1NTc5OTg5Nw=="
+                className="text-white bg-black rounded-full font-medium text-md px-5 py-2.5  me-2 mb-2 uppercase font-dharma tracking-widest relative overflow-hidden button-riple "
+              >
+                <span className="text-center inline-flex items-center relative z-[1]">
+                  <FaInstagram className="mr-2" />
+                  Instagram
+                </span>
+              </a>
+              <a
+                href="https://github.com/OnyanPokon"
+                className="text-white bg-black rounded-full font-medium text-md px-5 py-2.5  me-2 mb-2 uppercase font-dharma tracking-widest relative overflow-hidden button-riple "
+              >
+                <span className="text-center inline-flex items-center relative z-[1]">
+                  <FaGithub className="mr-2" />
+                  github
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <Thankyou />
+      <div className="bg-gray">
+        <section className="max-w-screen-xl mx-auto flex flex-col px-20 py-10 gap-5 font-incon uppercase text-black">
+          <div>
+            <p className="">[this sites has build with]</p>
+          </div>
+          <div className="flex flex-col md:flex-row gap-y-5 justify-between flex-wrap">
+            <div>
+              <span className="font-semibold">web development</span>
+              <p>vite</p>
+              <p>react</p>
+              <p>tailwind</p>
+              <p>custom css & js</p>
+            </div>
+            <div>
+              <span className="font-semibold">Animation</span>
+              <p>gsap</p>
+              <p>framer motion</p>
+            </div>
+            <div>
+              <span className="font-semibold">font used</span>
+              <p>inconsolta</p>
+              <p>dharma gothic e</p>
+              <p>sans serif</p>
+            </div>
+            <div>
+              <span className="font-semibold">main colors</span>
+              <p>violet: #5739fb</p>
+              <p>black: #1F1F1F</p>
+              <p>gray: #E6E6E6</p>
+              <p>white: #FFFFFF</p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div className="bg-gray">
+        <section className="py-16 relative overflow-x-hidden h-full">
+          <motion.img
+            animate={{ x: -100, y: 100, rotate: 100 }}
+            transition={{
+              duration: 40,
+              repeat: Infinity,
+              repeatType: 'reverse',
+            }}
+            src="/cube.png"
+            alt=""
+            className="lg:w-[10rem] md:w-[6rem] w-[4rem] absolute z-[3] filter blur-sm "
+          />
+          <div className="absolute z-[3] flex justify-center items-center w-full">
+            <motion.img
+              animate={{ x: -100, y: 100, rotate: 100 }}
+              transition={{
+                duration: 40,
+                repeat: Infinity,
+                repeatType: 'reverse',
+              }}
+              src="/cylinder.png"
+              alt=""
+              className="lg:w-[30em] md:w-[20rem] w-[10rem]"
+            />
+          </div>
+          <Marquee speed={200}>
+            <p className="font-dharma font-bold leading-none overflow-hidden lg:text-[20rem] text-[10rem] transparent font-outline uppercase  z-20">
+              MOHAMAD RAFIQ DAUD\
+            </p>
+          </Marquee>
+          <Marquee
+            direction="right"
+            speed={200}
+            className="font-dharma font-bold overflow-hidden leading-none lg:text-[20rem] text-[10rem] text-white uppercase z-30 tracking-wide"
+          >
+            <p>UIUX DESIGNER/FRONT END DEVELOPER/</p>
+          </Marquee>
+        </section>
+      </div>
     </>
   );
 }
