@@ -1,22 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+      },
+    },
     colors: {
-      "white": "#FFFFFF",
-      "gray": "#E6E6E6",
-      "violet": "#5739FB",
-      "black": "#1F1F1F",
-    }, 
+      white: '#FFFFFF',
+      gray: '#E6E6E6',
+      violet: '#5739fb',
+      black: '#1F1F1F',
+    },
     fontFamily: {
-      "dharma": ['Dharma Gothic E', 'sans-serif'],
-      "incon": ['Inconsolata','sans-serif'],
-    }
+      dharma: ['Dharma Gothic E', 'sans-serif'],
+      incon: ['Inconsolata', 'sans-serif'],
+    },
   },
-  plugins: [],
-}
-
+  plugins: [
+    // eslint-disable-next-line global-require
+    require('tailwind-scrollbar-hide'),
+  ],
+};
