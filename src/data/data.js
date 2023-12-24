@@ -6,13 +6,18 @@ import mock4 from '/mockup4.png';
 export const navLinks = [
   {
     id: 1,
-    path: '/',
-    text: '01.Home',
+    path: '/about',
+    text: '01.about',
   },
   {
     id: 2,
     path: '/portfolio',
     text: '02.Portfolio',
+  },
+  {
+    id: 3,
+    path: '/contact',
+    text: '03. contacts',
   },
 ];
 

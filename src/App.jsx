@@ -1,6 +1,7 @@
-import Homepage from "./pages/Homepage";
-import { Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navigation/Navbar";
+import { Routes, Route } from 'react-router-dom';
+import React from 'react';
+import Homepage from './pages/Homepage';
+import Navbar from './components/Navigation/Navbar';
 
 function App() {
   return (

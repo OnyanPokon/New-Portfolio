@@ -14,7 +14,7 @@ function Portfolio({
         </div>
         <img className="bg-[#f3f4f6] border-t-0 w-full h-68" src={imgurl} alt="mockup 1" />
       </div>
-      <div className="gap-4 text-gray">
+      <div className="text-gray">
         <span className="font-dharma font-bold lg:text-4xl border border-gray px-3 py-2 rounded-lg">
           0
           {id}
@@ -22,10 +22,10 @@ function Portfolio({
         <h3 className="mt-6 font-dharma lg:text-4xl">
           {heading}
         </h3>
-        <p className="mt-4 font-incon uppercase text-xs lg:text-base">
+        <p className="mt-4 mb-4 font-incon uppercase text-xs lg:text-base">
           {text}
         </p>
-        <a href={link} className="font-incon">
+        <a href={link} className="font-incon mt-4 uppercase">
           [
           Watch Demo
           ]
