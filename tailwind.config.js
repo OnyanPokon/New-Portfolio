@@ -5,16 +5,17 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+
     extend: {
       animation: {
         'spin-slow': 'spin 3s linear infinite',
       },
-    },
-    colors: {
-      white: '#FFFFFF',
-      gray: '#E6E6E6',
-      violet: '#5739fb',
-      black: '#1F1F1F',
+      colors: {
+        white: '#FFFFFF',
+        gray: '#E6E6E6',
+        violet: '#5739fb',
+        black: '#1F1F1F',
+      },
     },
     fontFamily: {
       dharma: ['Dharma Gothic E', 'sans-serif'],

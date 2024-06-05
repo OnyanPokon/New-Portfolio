@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+/* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import { React } from 'react';
 import Marquee from 'react-fast-marquee';
@@ -9,6 +11,7 @@ import About from '../components/Section/About';
 import Skills from '../components/Section/Skills';
 import Thankyou from '../components/Section/Thankyou';
 import '../index.css';
+import Button from '../components/Button/Button';
 
 function Homepage() {
   return (
@@ -113,61 +116,82 @@ function Homepage() {
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">01.</span>
               <p className="lg:text-6xl">React</p>
-              <img
-                src="/react.png"
-                alt=""
-                className="w-16 h-16 lg:block hidden"
-              />
+              <div className="relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70  backdrop-blur-sm top-0 right-0 bottom-0 left-0 rounded-xl" src="/react.png" />
+              </div>
+            </div>
+            <div className=" flex items-end gap-12 border-b border-gray py-10">
+              <span className="font-incon text-2xl">01.</span>
+              <p className="lg:text-6xl">Laravel</p>
+              <div className="relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70  backdrop-blur-sm top-0 right-0 bottom-0 left-0 rounded-xl" src="/lara.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">02.</span>
               <p className="lg:text-6xl">Figma</p>
-              <img
-                src="/figma.png"
-                alt=""
-                className="w-16 h-16 hidden lg:block"
-              />
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/figma.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">03.</span>
               <p className="lg:text-6xl">Adobe Illustrator</p>
-              <img src="/ai.png" alt="" className="w-16 h-16 hidden lg:block" />
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/ai.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">04.</span>
               <p className="lg:text-6xl">HTML 5</p>
-              <img
-                src="/html.png"
-                alt=""
-                className="w-16 h-16 hidden lg:block"
-              />
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/html.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">04.</span>
               <p className="lg:text-6xl">CSS 3</p>
-              <img
-                src="/css.png"
-                alt=""
-                className="w-16 h-16 hidden lg:block"
-              />
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/css.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">04.</span>
-              <p className="lg:text-6xl">Javascript 3</p>
-              <img
-                src="/javascript.png"
-                alt=""
-                className="w-16 h-16 hidden lg:block"
-              />
+              <p className="lg:text-6xl">Javascript</p>
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/javascript.png" />
+              </div>
             </div>
             <div className=" flex items-end gap-12 border-b border-gray py-10">
               <span className="font-incon text-2xl">05.</span>
               <p className="lg:text-6xl">Tailwind CSS </p>
-              <img
-                src="/tailwind.png"
-                alt=""
-                className="w-16 h-16 hidden lg:block"
-              />
+              <div className=" relative group">
+                <div
+                  className="w-16 h-16 lg:block hidden p-4  bg-white rounded-xl origin-bottom-right rotate-12 group-hover:rotate-0 transition-transform duration-300"
+                />
+                <img className="absolute w-full h-full p-3  bg-black/70 border backdrop-blur-sm border-gray/20 top-0 right-0 bottom-0 left-0 rounded-xl" src="/tailwind.png" />
+              </div>
             </div>
           </div>
         </section>
@@ -212,11 +236,9 @@ function Homepage() {
             <div className="flex items-center max-w-md px-6 lg:text-sm text-xs">
               <p className="text-center">
                 I can
-                {'\''}
-                t wait to collaborate with you. Don
-                {'\''}
-                t forget to reach out
-                to me if you want to build something extraordinary together.
+                't wait to collaborate with you. Don
+                't forget to reach out to me if you want to build something
+                extraordinary together.
               </p>
             </div>
             <div className="flex gap-2 mt-10 flex-wrap items-center justify-center px-6">
@@ -224,10 +246,12 @@ function Homepage() {
                 href="https://www.linkedin.com/in/mohamad-rafiq-daud-a58441248/"
                 className="text-white bg-black rounded-full font-medium text-md px-5 py-2.5  me-2 mb-2 uppercase font-dharma tracking-widest relative overflow-hidden button-riple "
               >
-                <span className="text-center inline-flex items-center relative z-[1]">
-                  <FaLinkedin className="mr-2" />
+                <div className="text-center inline-flex items-center relative z-[1]">
+                  <span>
+                    <FaLinkedin className="mr-2 h-4 w-4" />
+                  </span>
                   Linked in
-                </span>
+                </div>
               </a>
               <a
                 href="https://www.instagram.com/rafiqdaud_?igsh=ODA1NTc5OTg5Nw=="

@@ -22,6 +22,7 @@ function Carousel() {
                 text={portfolio.text}
                 imgurl={portfolio.imgurl}
                 link={portfolio.link}
+                figma={portfolio.figma}
               />
             </div>
           ))}

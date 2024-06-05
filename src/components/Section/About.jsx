@@ -1,11 +1,12 @@
 import { React } from 'react';
 
 import { motion } from 'framer-motion';
+import Button from '../Button/Button';
 
 function About() {
   return (
     <section className="max-w-screen-xl mx-auto flex justify-around items-start lg:gap-20 py-20 lg:px-28 px-10 gap-5">
-      <div>
+      <div className="hidden lg:block">
         <motion.img
           initial={{ rotate: 90 }}
           whileInView={{ rotate: 0 }}
@@ -15,7 +16,7 @@ function About() {
           className="w-80"
         />
       </div>
-      <div className=" lg:pr-40 flex flex-col lg:gap-20 gap-10">
+      <div className=" lg:pr-40 flex flex-col lg:gap-y-0-20 gap-y-10">
         <motion.p
           initial={{ filter: 'blur(10px)' }}
           whileInView={{ filter: 'blur(0px)' }}
@@ -29,6 +30,7 @@ function About() {
           I firmly believe that compelling design and intuitive interfaces play
           a pivotal role in creating exceptional user experiences.
         </motion.p>
+        {/* <Button text="More About Me" className="w-fit" /> */}
         <span className="font-incon uppercase lg:text-base text-xs tracking-wider">
           [ ready to stand out? ]
         </span>

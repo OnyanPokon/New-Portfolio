@@ -13,12 +13,11 @@ function Navbar() {
   return (
     <nav className="p-1 fixed z-50 w-full h-16 md:max-w-lg max-w-xs -translate-x-1/2  rounded-lg bottom-4 left-1/2 bg-black">
       <div className="flex h-full md:max-w-lg max-w-xs mx-auto p-1 border text-white rounded-lg">
-        <div className="flex justify-center items-center">
+
+        <div className="flex-1 flex justify-around items-center font-incon tracking-wider uppercase ">
           <NavLink to="/" className="p-2">
             <HiGlobeAlt className="animate-spin" />
           </NavLink>
-        </div>
-        <div className="flex-1 flex justify-around items-center font-incon tracking-wider uppercase ">
           {navLinks.map((link) => (
             <NavLink
               key={link.id}
