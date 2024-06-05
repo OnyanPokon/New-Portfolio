@@ -2,7 +2,6 @@ import { React, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import SplitType from 'split-type';
 import gsap from 'gsap';
-import react from '../../assets/react.svg';
 import Plus from '../Plus';
 
 function Hero() {
@@ -37,18 +36,6 @@ function Hero() {
   return (
     <section className="max-w-screen-xl mx-auto flex flex-col justify-center w-full">
       <div className="flex flex-col items-center gap-4">
-        <div className="flex gap-8">
-          <img
-            className="w-16 h-16 rounded-full ring-2 ring-gray "
-            src="/rafiq.jpg"
-            alt="Rounded avatar"
-          />
-          <img
-            className="w-16 h-16 rounded-full animate-spin-slow"
-            src={react}
-            alt="Rounded avatar"
-          />
-        </div>
         <div className="font-incon text-center text-xs uppercase">
           <p>
             Welcome to my portfolio website

@@ -32,7 +32,7 @@ function Thankyou() {
     }
   }, [inView]);
   return (
-    <div className="bg-gray py-20">
+    <div className="bg-gray">
       <section className="flex justify-center items-center">
         <div className="flex flex-col items-center" ref={ref}>
           <p className="font-incon uppercase lg:text-2xl">[ this is the end of the page ]</p>
